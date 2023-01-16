@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: antiquewhite;
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 67%,
+    rgba(252, 176, 69, 1) 100%
+  );
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.grid {
+  width: 600px;
+  height: 608px;
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  border: 9px solid black;
+  justify-content: center;
+  align-items: center;
+}
+
+.square {
+  height: 200px;
+  width: 200px;
+  border: 2px solid black;
+}
+
+.animal {
+  background-image: url(./road\ runner.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
