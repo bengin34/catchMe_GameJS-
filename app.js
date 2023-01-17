@@ -2,10 +2,13 @@ const squares = document.querySelectorAll(".square");
 const animal = document.querySelector(".animal");
 const timeLeft = document.getElementById("time-left");
 const score = document.getElementById("score");
+const bestScore =document.getElementById("bestscore")
+
 
 let result = 0;
 let touchPosition;
 let currentTime = 30;
+localBestScoreCheck();
 
 function randomSquare() {
   squares.forEach((square) => {
@@ -23,11 +26,14 @@ squares.forEach((square) => {
     if (square.id == touchPosition) {
       result++;
       score.textContent = result;
-      // console.log(score)
+      localBestScoreCheck()
       touchPosition = null;
     }
   });
 });
+
+
+
 
 function moveAnimal() {
   let timerId = null; //stop this timer
@@ -44,7 +50,18 @@ function countDown() {
     clearInterval(countDownTimerId);
     alert(`GAME OVER!! Your final score is ${result}`);
     window.location.reload();
+    localBestScoreCheck ()
   }
 }
 
 let countDownTimerId = setInterval(countDown, 1000);
+
+function localBestScoreCheck() {
+  let bestScoreValue = localStorage.getItem("bestScore");
+  if (bestScoreValue === null || result > bestScoreValue) {
+    localStorage.setItem("bestScore", result);
+    bestScore.textContent = result;
+  } else {
+    bestScore.textContent = bestScoreValue;
+  }
+}
